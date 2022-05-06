@@ -1,3 +1,4 @@
+--All five of these tables have been run successfully. Don't try to run them again.
 
 --STATUS TABLE
 CREATE TABLE reimbursement_statuses (
@@ -28,33 +29,33 @@ VALUES  ('Food'),
 SELECT * FROM reimbursement_types
 	
 --ROLES TABLE
-CREATE TABLE user_roles(
-	user_roles_id serial PRIMARY KEY,
-	u_role varchar(20),
-	salary int
+CREATE TABLE roles(
+	role_id serial PRIMARY KEY,
+	role_title varchar(20),
+	role_salary int
 	);
 
-INSERT INTO user_roles (u_role, salary)
+INSERT INTO roles (role_title, role_salary)
 VALUES ('Associate', 50000),
 	('Administrator', 100000);
 	
-SELECT * FROM user_roles
+SELECT * FROM roles
 
--- USERS TABLE	
-CREATE TABLE users (
-	users_id serial PRIMARY KEY,
+-- EMPLOYEES TABLE	
+CREATE TABLE employees (
+	employees_id serial PRIMARY KEY,
 	username varchar (50) UNIQUE,
-	psword varchar (50),
-	fname varchar (100),
-	lname varchar (100),
+	pass varchar (50),
+	firstname varchar (100),
+	lastname varchar (100),
 	email varchar (150) UNIQUE,
-	user_roles_id_fk int REFERENCES user_roles
+	roles_id_fk int REFERENCES roles
 );
 
-INSERT INTO users (username, psword, fname, lname, email, user_roles_id_fk)
+INSERT INTO employees (username, pass, firstname, lastname, email, roles_id_fk)
 VALUES ('MarioBro1', 'PeachySchmoo','Mario', 'Starryman', 'lasagnalover@yahoo.com', 2);
 		
-SELECT * FROM users
+SELECT * FROM employees
 
 --REIMBURSE TABLE
 CREATE TABLE reimburse (
@@ -64,8 +65,8 @@ CREATE TABLE reimburse (
 	resolved text,
 	description varchar (250),
 	
-	author_fk int REFERENCES users(users_id),
-	resolver_fk int REFERENCES users(users_id),
+	author_fk int REFERENCES employees(employees_id),
+	resolver_fk int REFERENCES employees(employees_id),
 	status_id_fk int REFERENCES reimbursement_statuses(reimbursement_statuses_id),
 	reimb_type_id_fk int REFERENCES reimbursement_types(reimbursement_types_id)
 	

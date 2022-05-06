@@ -1,5 +1,25 @@
+package com.revature;
 
-public class ERSTests {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.sql.SQLException;
+
+import org.junit.Test;
+import org.junit.jupiter.api.function.Executable;
+
+import com.revature.daos.EmployeeDAO;
+import com.revature.daos.RoleDAO;
+import com.revature.daos.UserDAO;
+import com.revature.models.Employee;
+
+public class KrustyTests {
 
 	UserDAO ud = new UserDAO();
 	EmployeeDAO ed = new EmployeeDAO();
@@ -40,6 +60,5 @@ public class ERSTests {
 		assertNotSame(rd.getRoleById(1), rd.getRoleById(2));
 		assertNotSame(rd.getRoleById(3), rd.getRoleById(4));
 	}
-	
 	
 }
