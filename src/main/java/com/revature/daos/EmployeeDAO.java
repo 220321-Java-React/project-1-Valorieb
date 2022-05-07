@@ -55,7 +55,7 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 				
 				
 				//get a Role object from the RoleDAO
-		
+		System.out.println(e);
 				
 			
 				//thanks to this setter, our Employee objects can be FULLY initialized (every variable has a value)

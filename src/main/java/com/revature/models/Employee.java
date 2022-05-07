@@ -10,7 +10,7 @@ public class Employee {
 	private String last_name;
 	//Every Employee in this application will have a role associated with it
 	private Role role; //in other words, every EMPLOYEE has a ROLE
-
+	private int role_fk;
 	
 	//this class won't have any methods, we just need it to represent (aka MODEL) some data
 	
@@ -49,8 +49,15 @@ public class Employee {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int int1, String string, String string2, int int2) {
-		// TODO Auto-generated constructor stub
+	
+	
+
+	public Employee(int employee_id, String first_name, String last_name, int role_fk) {
+		super();
+		this.employee_id = employee_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.role_fk = role_fk;
 	}
 
 	//the toString() method lets us actually print out our objects, since it would print a memory address otherwise

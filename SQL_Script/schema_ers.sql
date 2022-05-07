@@ -53,9 +53,9 @@ CREATE TABLE employees (
 );
 
 INSERT INTO employees (username, pass, firstname, lastname, email, roles_id_fk)
-VALUES ('MarioBro1', 'PeachySchmoo','Mario', 'Starryman', 'lasagnalover@yahoo.com', 2);
+VALUES ('MarioBro2', 'GhostsR2Scary','Luigi', 'Starryman', 'pistacchiogelato@yahoo.com', 2);
 		
-SELECT * FROM employees
+SELECT * FROM employees;
 
 --REIMBURSE TABLE
 CREATE TABLE reimburse (
@@ -76,5 +76,7 @@ INSERT INTO reimburse (amount, description, author_fk, resolver_fk, status_id_fk
 VALUES (20, 'Lasagna lunch meeting to discuss team project', 1, 1, 2, 1);
 
 SELECT * FROM reimburse
+
+DELETE FROM employees WHERE email = 'superlasagnalover@yahoo.com';
 
 --END

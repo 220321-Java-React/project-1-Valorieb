@@ -55,7 +55,7 @@ async function getEmployees() {
             row.appendChild(cell3);
 
             let cell4 = document.createElement("td");
-            cell4.innerHTML = employee.role.role_title;
+            cell4.innerHTML = employee.role_fk;
             row.appendChild(cell4);
 
             //append the tr (which we called "row") to the table body (tbody)

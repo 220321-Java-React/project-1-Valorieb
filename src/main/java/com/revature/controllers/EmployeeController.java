@@ -25,7 +25,7 @@ public class EmployeeController {
 	public Handler getEmployeesHandler = (ctx) -> {
 
 		
-		if(AuthController.ses != null) { //if there is an active session from the AuthController...
+		//if(AuthController.ses != null) { //if there is an active session from the AuthController...
 			
 		//we need an ArrayList of Employee objects (which we'll get from the service layer)
 		ArrayList<Employee> employees = es.getEmployees();
@@ -40,9 +40,9 @@ public class EmployeeController {
 		ctx.result(JSONEmployees); //.result() sends a response of data back
 		ctx.status(200); //.status() sets the HTTP status code. 200 stands for "OK"
 		
-		} else { //if a session DOESN'T exist (user isn't logged in)
-			ctx.status(400);
-		}
+		//} else { //if a session DOESN'T exist (user isn't logged in)
+			//ctx.status(400);
+		//}
 		
 	};
 	

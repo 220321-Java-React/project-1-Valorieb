@@ -18,7 +18,7 @@ public class EmployeeService {
 		
 		//get the List of employees from the DAO
 		ArrayList<Employee> employees = eDAO.getEmployees();
-		
+		System.out.println(employees);
 		//return that List of employees
 		return employees;
 		
