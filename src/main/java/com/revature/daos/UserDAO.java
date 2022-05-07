@@ -4,25 +4,73 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.revature.models.UserLogin;
+import com.revature.models.Employee;
 import com.revature.utils.ConnectionUtil;
 
-//This is a (sort of fake) DAO class that deals with user data
-//In P0, you should have a user table that keeps track of users and their password
-//But here, I'm going to hardcode a "correct" username and password
-//You will have to figure out how to check the user inputted credentials against the database
+
 public class UserDAO {
 	
+	
+	
+	
+	
+	
 	//This method will return true in the case of successful login, otherwise it will return false
-	public boolean login(String username, String password) {
+	public boolean login(String username, String pass) {
 		
-		if(username.equals("user") && password.equals("password")) {
+		if(username.equals(username) && pass.equals(pass)) {
 			return true;
 		}
 		
 		return false;
 		
 	}
+	
+	@Override
+    public Employee LoginDTO (String username, String pass) {
+
+        try(Connection conn = ConnectionUtil.getConnection()){
+
+            String sql = "SELECT * FROM employees WHERE username = ? AND pass = ?;";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, pass);
+        }
+	/*
+	
+	@Override
+	public void getLoginDTO (String username, String pass) {
+	
+		try(Connection conn = ConnectionUtil.getConnection()){
+		
+	
+		String sql = "select * employees (username, pass)"
+				+ "values (?,?);";
+				
+		//Instantiate a PreparedStatement to fill in the variables of our initial SQL String
+		PreparedStatement ps = conn.prepareStatement(sql);
+		
+		//fill in the values of our variables using ps.setXYZ()
+		ps.setString(1, username.getUsername());
+		ps.setString(2, username.getPassword());
+	
+		 
+		//note how the DB role_id is an int, but in Java, Employees have a Role OBJECT
+		//this is my workaround of choice... have the user input the id of the desired role when inserting the user data
+		
+		//Execute the Update!! (the method is called executeUpdate(), but it's for INSERTS, UPDATES, and DELETES)
+		ps.executeUpdate();
+		
+		//Tell the user the insert was successful
+		System.out.println("Username " + username.getUsername() + "Success!");
+			
+		} catch (SQLException e) {
+			System.out.println("Login unsuccessful!");
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 
 
@@ -36,5 +84,5 @@ public class UserDAO {
 	//Might I suggest select * from users where username = ? and password = ?;
 	//If a record comes back, there IS a username and password matching what the user sent in
 	//If "null" comes back, there is no username and password pair matching what the user sent in
-	
+	*/
 }

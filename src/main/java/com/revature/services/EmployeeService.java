@@ -3,6 +3,7 @@ package com.revature.services;
 import java.util.ArrayList;
 
 import com.revature.daos.EmployeeDAO;
+import com.revature.daos.UserDAO;
 import com.revature.models.Employee;
 
 //The service layer contains additional business logic needed to process requests/responses
@@ -23,5 +24,18 @@ public class EmployeeService {
 		return employees;
 		
 	}
+ UserDAO ud = new UserDAO();
+	 
+	 public Employee getEmployees(String username, String pass) {
+		 Employee u = ud.LoginDTO(username, pass);
+		 if (u != null) {  
+		if (u.getPass().equals(pass)) { 
+			 return u;
+		}
+		}
+		 else {
+		 return null;
+		 }
+		}
 	
 }

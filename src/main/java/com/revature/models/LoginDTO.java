@@ -9,7 +9,7 @@ public class LoginDTO {
 
 	//our LoginDTO models ONLY the username/password sent in by the user
 	private String username;
-	private String password;
+	private String pass;
 
 	
 	//I just want a no args and all args constructor, so we can instantiate LoginDTOs
@@ -19,10 +19,10 @@ public class LoginDTO {
 	}
 
 
-	public LoginDTO(String username, String password) {
+	public LoginDTO(String username, String pass) {
 		super();
 		this.username = username;
-		this.password = password;
+		this.pass = pass;
 	}
 
 	//we need getters/setters to access our fields (encapsulation)
@@ -37,19 +37,19 @@ public class LoginDTO {
 
 
 	public String getPassword() {
-		return password;
+		return pass;
 	}
 
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String pass) {
+		this.pass = pass;
 	}
 
 
 	//so that we can actually print out this print this class out
 	@Override
 	public String toString() {
-		return "LoginDTO [username=" + username + ", password=" + password + "]";
+		return "LoginDTO [username=" + username + ", pass=" + pass + "]";
 	}
 	
 	

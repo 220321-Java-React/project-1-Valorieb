@@ -80,7 +80,7 @@ async function loginFunction(){
 //gather the user inputs from the login inputs
 //when the login button is clicked, the value from username and password will be put into variables
 let usern = document.getElementById("username").value;
-let userp = document.getElementById("password").value;
+let userp = document.getElementById("pass").value;
 
 //we want to send the user/pass as JSON, so we need a JS object first.
 let user = {

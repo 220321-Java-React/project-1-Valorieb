@@ -18,7 +18,14 @@
 		<!--https://www.w3schools.com/bootstrap/bootstrap_ref_css_buttons.asp-->
 
 </head>
-
+<body>
+    <style>
+        body{
+            background-image: url('MarioBackground!.png');
+            background-repeat: no-repeat;
+        }
+     </style>
+</body>
 <br>
     
     <!--A div with a class of "container" makes it so that bootstrap will be applied to this div-->
@@ -30,7 +37,7 @@
         <div id="loginRow" class="row">
             <h3 id="welcomeHead">Please Enter Your Login Credentials</h3>
             <input id="username" placeholder="Username"/>
-            <input id="password" type="password" placeholder="Password"/>
+            <input id="pass" type="password" placeholder="Password"/>
             <button id="loginButton" class="btn btn-primary col-sm-3">Login</button>
         <!-- col-sm-3? this will make the login button take up 25% of the row -->
         <!-- col-sm-12 for instance would make the button take up the entire row -->
@@ -64,8 +71,9 @@
         <button id="getEmployeeButton" class="btn btn-danger">Show Employees</button>
 
     </div>
+   
 
     <!-- We need to link a JS file to this HTML file to give it functionality -->
     <script src="Reimbursement.js"></script>
-</body>
+
 </html>
