@@ -45,6 +45,14 @@ public class Employee {
 		this.role = role;
 	}
 	
+	public Employee(int int1, String string, String string2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Employee(int int1, String string, String string2, int int2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	//the toString() method lets us actually print out our objects, since it would print a memory address otherwise
 	//(source -> generate toString)
 	@Override

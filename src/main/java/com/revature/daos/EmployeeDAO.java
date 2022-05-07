@@ -42,23 +42,22 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 				//Create a new Employee object from each record in the ResultSet
 				//we're using the all args constructor of Employee to fill in new Employee objects with DB data
 				Employee e = new Employee(
-						rs.getInt("employee_id"),
-						rs.getString("first_name"),
-						rs.getString("last_name"),
-						null //there is no JDBC method for getRole... we'll add the Role object in below
+						rs.getInt("employees_id"),
+						rs.getString("firstname"),
+						rs.getString("lastname"),
+						rs.getInt("roles_id_fk")//null //there is no JDBC method for getRole... we'll add the Role object in below
 						//this is an extra step we have to take because in the DB, the role_id_fk is an int
 						//but we need a Role object here
 						);
 				
 				//we need to get the role of each employee somehow...
 				//we need to use the DAO method for getRoleById from the RoleDAO
-				int roleFK = rs.getInt("role_id_fk");
+				
 				
 				//get a Role object from the RoleDAO
-				Role r = rDAO.getRoleById(roleFK);
+		
 				
-				//use the SETTER of the Employee class to set the Role object to the one we got from the DB above.
-				e.setRole(r);
+			
 				//thanks to this setter, our Employee objects can be FULLY initialized (every variable has a value)
 				
 				//add the fully initialized Employee into the ArrayList
@@ -88,7 +87,7 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 			//We need to join employees on roles in order to access the role_title column from the roles table
 			//since I want to get employees by their role title, I need access to the data in both tables
 			String sql = "select * from employees inner join roles "
-					+ "on role_id = role_id_fk where role_title = ?;";
+					+ "on role_id = roles_id_fk where role_title = ?;";
 			
 			//we have a variable in the SQL statement, so we need a PreparedStatement to fill it in
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -108,13 +107,13 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 				//create new Employee objects based on the data, and fill in the ArrayList
 				Employee e = new Employee(
 						rs.getInt("employee_id"),
-						rs.getString("first_name"),
-						rs.getString("last_name"),
+						rs.getString("firstname"),
+						rs.getString("lastname"),
 						null
 						);
 				
 				//get the foreign key from the Employees table to use in our getRoleById() method
-				int roleFK = rs.getInt("role_id_fk");
+				int roleFK = rs.getInt("roles_id_fk");
 				
 				Role r = rDAO.getRoleById(roleFK);
 				
