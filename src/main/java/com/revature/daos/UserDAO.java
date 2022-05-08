@@ -3,6 +3,7 @@ package com.revature.daos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import com.revature.models.LoginDTO;
 
 import com.revature.models.Employee;
 import com.revature.utils.ConnectionUtil;
@@ -26,7 +27,7 @@ public class UserDAO {
 		
 	}
 	
-	@Override
+	//@Override
     public Employee LoginDTO (String username, String pass) {
 
         try(Connection conn = ConnectionUtil.getConnection()){
@@ -35,17 +36,14 @@ public class UserDAO {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, pass);
+            System.out.println("Username " + username.getUsername() + "Success!");
         }
+        catch (SQLException e) {
+			System.out.println("Login unsuccessful!");
+			e.printStackTrace();
+	}
 	/*
 	
-	@Override
-	public void getLoginDTO (String username, String pass) {
-	
-		try(Connection conn = ConnectionUtil.getConnection()){
-		
-	
-		String sql = "select * employees (username, pass)"
-				+ "values (?,?);";
 				
 		//Instantiate a PreparedStatement to fill in the variables of our initial SQL String
 		PreparedStatement ps = conn.prepareStatement(sql);
@@ -62,7 +60,7 @@ public class UserDAO {
 		ps.executeUpdate();
 		
 		//Tell the user the insert was successful
-		System.out.println("Username " + username.getUsername() + "Success!");
+		
 			
 		} catch (SQLException e) {
 			System.out.println("Login unsuccessful!");
@@ -85,4 +83,6 @@ public class UserDAO {
 	//If a record comes back, there IS a username and password matching what the user sent in
 	//If "null" comes back, there is no username and password pair matching what the user sent in
 	*/
+		return null;
+    }
 }

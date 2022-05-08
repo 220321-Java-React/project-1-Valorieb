@@ -29,13 +29,15 @@ public class EmployeeService {
 	 public Employee getEmployees(String username, String pass) {
 		 Employee u = ud.LoginDTO(username, pass);
 		 if (u != null) {  
-		if (u.getPass().equals(pass)) { 
+		if (u.getPass().equals(pass) && (u.getUsername().equals(username))) { 
 			 return u;
 		}
-		}
+		return u;
+		 }
 		 else {
 		 return null;
 		 }
+		
 		}
 	
 }

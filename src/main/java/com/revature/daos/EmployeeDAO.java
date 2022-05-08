@@ -43,8 +43,11 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 				//we're using the all args constructor of Employee to fill in new Employee objects with DB data
 				Employee e = new Employee(
 						rs.getInt("employees_id"),
+						rs.getString ("username"),
+						rs.getString("pass"),
 						rs.getString("firstname"),
 						rs.getString("lastname"),
+						rs.getString("email"),
 						rs.getInt("roles_id_fk")//null //there is no JDBC method for getRole... we'll add the Role object in below
 						//this is an extra step we have to take because in the DB, the role_id_fk is an int
 						//but we need a Role object here
@@ -107,9 +110,12 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 				//create new Employee objects based on the data, and fill in the ArrayList
 				Employee e = new Employee(
 						rs.getInt("employee_id"),
+						rs.getString("username"),
+						rs.getString("pass"),
 						rs.getString("firstname"),
 						rs.getString("lastname"),
-						null
+						rs.getString("email")
+					
 						);
 				
 				//get the foreign key from the Employees table to use in our getRoleById() method
@@ -149,8 +155,8 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		//fill in the values of our variables using ps.setXYZ()
-		ps.setString(1, employee.getFirst_name());
-		ps.setString(2, employee.getLast_name());
+		ps.setString(1, employee.getFirstname());
+		ps.setString(2, employee.getLastname());
 		ps.setInt(3, role_id); 
 		//note how the DB role_id is an int, but in Java, Employees have a Role OBJECT
 		//this is my workaround of choice... have the user input the id of the desired role when inserting the user data
@@ -159,7 +165,7 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 		ps.executeUpdate();
 		
 		//Tell the user the insert was successful
-		System.out.println("Employee " + employee.getFirst_name() + " added. Welcome aboard agagagagaga!");
+		System.out.println("Employee " + employee.getFirstname() + " added. Welcome aboard agagagagaga!");
 			
 		} catch (SQLException e) {
 			System.out.println("Something went wrong inserting Employee!");

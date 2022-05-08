@@ -2,11 +2,7 @@ package com.revature.models;
 
 //This Class models the employees table in our database
 public class Employee {
-
-	//variables for the employee class - must match the employees table in the database
-	//note the private variables, private coupled with getters and setters (see below) are how we achieve ENCAPSULATION
-	private int employees_id;
-	private String username;
+	
 	private String pass;
 	private String firstname;
 	private String lastname;
@@ -14,14 +10,45 @@ public class Employee {
 	private String email;
 	private Role role; //in other words, every EMPLOYEE has a ROLE
 	private int roles_fk;
+	private String username;
+	
+	
+	@Override
+	public String toString() {
+		return "Employee [username=" + username + ", pass=" + pass + ", firstname=" + firstname + ", lastname="
+				+ lastname + ", email=" + email + ", role=" + role + ", roles_fk=" + roles_fk + ", employees_id="
+				+ employees_id + "]";
+	}
+
+	
+
+	//variables for the employee class - must match the employees table in the database
+	//note the private variables, private coupled with getters and setters (see below) are how we achieve ENCAPSULATION
+	private int employees_id;
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+
 	
 	
 	public int getEmployees_id() {
 		return employees_id;
 	}
 
-	public Employee(int employees_id, String username, String pass, String firstname, String lastname, String email,
-			Role role, int roles_fk) {
+	public Employee(int employees_id, String username, String pass, String firstname, String lastname, String email, int roles_fk) {
 		super();
 		this.employees_id = employees_id;
 		this.username = username;
@@ -29,9 +56,19 @@ public class Employee {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
-		this.role = role;
 		this.roles_fk = roles_fk;
 	}
+	
+	public Employee(int employees_id, String username, String pass, String firstname, String lastname, String email) {
+		super();
+		this.employees_id = employees_id;
+		this.username = username;
+		this.pass = pass;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+	}
+
 
 	public void setEmployees_id(int employees_id) {
 		this.employees_id = employees_id;
@@ -81,7 +118,7 @@ public class Employee {
 	}
 
 	
-	
+	/*
 	//this class won't have any methods, we just need it to represent (aka MODEL) some data
 	
 	//boilerplate code below------------------------------
@@ -172,6 +209,6 @@ public class Employee {
 
 	public void setRole(Role role) {
 		this.role = role;
-	} 
+	} */
 	
 }
