@@ -41,6 +41,7 @@ public class UserDAO {
         catch (SQLException e) {
 			System.out.println("Login unsuccessful!");
 			e.printStackTrace();
+			return null;
 	}
 	/*
 	
@@ -83,6 +84,6 @@ public class UserDAO {
 	//If a record comes back, there IS a username and password matching what the user sent in
 	//If "null" comes back, there is no username and password pair matching what the user sent in
 	*/
-		return null;
+	
     }
 }

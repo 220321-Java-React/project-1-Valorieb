@@ -23,8 +23,8 @@ public class EmployeeService {
 		//return that List of employees
 		return employees;
 		
-	}
- UserDAO ud = new UserDAO();
+	} 
+/* UserDAO ud = new UserDAO();
 	 
 	 public Employee getEmployees(String username, String pass) {
 		 Employee u = ud.LoginDTO(username, pass);
@@ -39,5 +39,5 @@ public class EmployeeService {
 		 }
 		
 		}
-	
+	*/
 }
