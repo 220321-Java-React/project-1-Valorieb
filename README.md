@@ -39,7 +39,7 @@ An Employee can:
 
 • Host the database on an AWS RDS
 
-ROLES ANF RESPONSIBILITIES:
+ROLES AND RESPONSIBILITIES:
 
 Created a relational database between eight tables using postgreSQL.
 
