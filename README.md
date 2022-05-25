@@ -39,12 +39,20 @@ An Employee can:
 
 • Host the database on an AWS RDS
 
+ROLES ANF RESPONSIBILITIES:
 
 Created a relational database between eight tables using postgreSQL.
+
 Connected the SQL database to a Java server through the JDBC.
+
 Used Javalin, JSON, and GSON to connect the server to the client.
+
 Created a user interface for a login form using CSS and Bootstrap.
+
 Admin and User roles were set up for separate logins.
+
 Javascript code created for website functionality.
+
 HTML webpage structure.
+
 Fetched HTTP requests.
